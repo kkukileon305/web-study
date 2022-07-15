@@ -9,18 +9,17 @@ export default class Ghost {
     this.dropY = 0;
     this.ghostElement = document.createElement('div');
     this.rainId;
+    this.checkOverlapHandler = () => {
+      const { left: ghostLeft, top: ghostTop, right: ghostRight, bottom: ghostBottom } = this.ghostElement.getBoundingClientRect();
+      const { left: heroLeft, top: heroTop, right: heroRight, bottom: heroBottom } = heroElement.getBoundingClientRect();
+
+      if (heroRight >= ghostLeft && heroLeft <= ghostRight && heroBottom >= ghostTop && heroTop <= ghostBottom) {
+        this.removeGhost();
+        Ghost.score++;
+        scoreP.innerHTML = `${Ghost.score} / ${GOAL}`;
+      }
+    };
     Ghost.ghosts.push(this);
-  }
-
-  checkOverlapHandler() {
-    const { left: ghostLeft, top: ghostTop, right: ghostRight, bottom: ghostBottom } = this.ghostElement.getBoundingClientRect();
-    const { left: heroLeft, top: heroTop, right: heroRight, bottom: heroBottom } = heroElement.getBoundingClientRect();
-
-    if (heroRight >= ghostLeft && heroLeft <= ghostRight && heroBottom >= ghostTop && heroTop <= ghostBottom) {
-      this.removeGhost();
-      Ghost.score++;
-      scoreP.innerHTML = `${Ghost.score} / ${GOAL}`;
-    }
   }
 
   static initScore() {
