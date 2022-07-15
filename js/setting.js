@@ -1,0 +1,14 @@
+export const SPEED = 20;
+export const FULLTIME = 400;
+export const GOAL = 20;
+export const [LEFT, UP, RIGHT, DOWN] = [37, 38, 39, 40];
+export const mainElement = document.querySelector('main');
+export const heroElement = document.querySelector('span.hero');
+export const lifeList = document.querySelectorAll('div.upSide div.life ul li');
+export const timerP = document.querySelector('div.upSide div.timer p');
+export const scoreP = document.querySelector('div.upSide div.score p');
+export const startBtn = document.querySelector('button.start');
+export const upSideDiv = document.querySelector('div.upSide');
+export const resultDiv = document.querySelector('div.result');
+export const { width: bgWidth, height: bgHeight } = mainElement.getBoundingClientRect();
+export const { width: heroWidth, height: heroHeight } = mainElement.getBoundingClientRect();

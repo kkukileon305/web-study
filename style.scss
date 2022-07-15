@@ -1,0 +1,205 @@
+* {
+  box-sizing: border-box;
+  list-style: none;
+}
+
+html {
+  height: 100%;
+
+  body {
+    margin: 0;
+    height: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    main {
+      background-image: url(https://images.unsplash.com/photo-1584441407759-073f2344cdef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
+      width: 1200px;
+      height: 800px;
+      position: relative;
+
+      div.upSide {
+        border-radius: 10px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 10px 20px;
+
+        &.hidden {
+          display: none;
+        }
+
+        div {
+          width: 200px;
+          height: 100px;
+          color: white;
+          text-align: center;
+
+          h4 {
+            margin: 0;
+            font-size: 30px;
+          }
+
+          p {
+            margin: 0;
+            font-size: 30px;
+          }
+
+          &.life {
+            ul {
+              height: 30px;
+              display: flex;
+              justify-content: center;
+              gap: 20px;
+              padding: 0;
+              margin: 0;
+              margin-top: 10px;
+
+              li {
+                height: 100%;
+                border: 1px solid white;
+                width: 30px;
+                transition: 0.5s;
+                background-color: white;
+
+                &.dead {
+                  background-color: transparent;
+                }
+              }
+            }
+          }
+          &.timer {
+          }
+          &.score {
+          }
+        }
+      }
+
+      div.result {
+        position: absolute;
+        width: 800px;
+        height: 200px;
+        border: 1px solid white;
+        left: 200px;
+        top: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        animation: appear 0.5s forwards;
+
+        &.hidden {
+          animation: hide 0.5s forwards;
+        }
+
+        &.none {
+          display: none;
+        }
+      }
+
+      span.hero {
+        display: block;
+        width: 35px;
+        height: 54px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: 0.05s;
+
+        &.hidden {
+          display: none;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url(https://wecode.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fcccc397f-bbc0-41cc-922d-4bb9f761af06%2Fhero.png?table=block&id=4f409f9d-3e59-4f78-a646-ea5a0d0fe9a3&spaceId=4b97eaca-7938-4c43-b27c-a0c55795a841&width=280&userId=&cache=v2);
+        }
+
+        &.left::after {
+          background-position: 70px;
+        }
+        &.up::after {
+          background-position: 105px;
+        }
+        &.right::after {
+          background-position: 35px;
+        }
+        &.down::after {
+          background-position: 0;
+        }
+      }
+
+      button.start {
+        width: 100px;
+        height: 100px;
+        border: 6px solid white;
+        background: transparent;
+        border-radius: 50px;
+        color: white;
+        font-size: 30px;
+        font-weight: 700;
+        position: absolute;
+        left: calc(50% - 50px);
+        bottom: 200px;
+        animation: appear 0.5s forwards;
+
+        &.hidden {
+          animation: hide 0.5s forwards;
+        }
+
+        &.none {
+          display: none;
+        }
+
+        &:hover {
+          border: 6px solid blue;
+          color: blue;
+        }
+      }
+
+      div.ghost {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: blue;
+        width: 30px;
+        height: 30px;
+        transition: 0.1s;
+      }
+    }
+  }
+}
+
+@keyframes hide {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes appear {
+  0% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

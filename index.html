@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="직접 만드는 웹 게임" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>나의 웹 게임</title>
+  </head>
+  <body>
+    <main>
+      <div class="upSide hidden">
+        <div class="life">
+          <h4>Life</h4>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <div class="timer">
+          <h4>Time</h4>
+          <p>60</p>
+        </div>
+        <div class="score">
+          <h4>Score</h4>
+          <p>0 / 10</p>
+        </div>
+      </div>
+      <div class="result hidden none"></div>
+      <span class="hero hidden"></span>
+      <button class="start">시작</button>
+    </main>
+  </body>
+  <script type="module" src="js/init.js"></script>
+  <script type="module" src="js/hero.js"></script>
+  <script type="module" src="js/setting.js"></script>
+  <script type="module" src="js/ghost.js"></script>
+</html>
